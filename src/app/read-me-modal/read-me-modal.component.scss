@@ -1,0 +1,105 @@
+.modal-content {
+    background: #122d50;
+    color: rgba(255, 255, 255, 0.85);
+
+    width: 620px;
+    max-width: 90vw;
+
+    max-height: 80vh;
+    overflow-y: auto;
+
+    border-radius: 12px;
+    padding: 1.5rem;
+
+    border: 1px solid rgba(62, 64, 183, 0.08);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    position: relative;
+}
+
+.modal-content button {
+    margin-top: 1rem;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+
+    width: 620px;
+    max-width: 90vw;
+    max-height: 80vh;
+}
+
+.modal-body {
+    overflow-y: auto;
+    flex: 1;
+}
+
+
+
+
+
+
+
+.modal-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #0d2038;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #4b6ea8;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #6287c7;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 16px;
+}
+
+
+
+
+
+
+.close-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 32px;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+.readme-link {
+    font-size: x-small;
+    color: #fff;
+}

@@ -1,0 +1,68 @@
+<div class="page">
+  <div class="toolbar">
+
+    <h1>StateFlowx Runtime Dashboard</h1>
+
+    <ul>
+      <li>
+        <button [disabled]="isExecuting || !apiKey || apiKey.length < 39" (click)="executeTask()">
+          Execute Task
+        </button>
+      </li>
+
+      <li>
+        <input maxLength="64" type="password" placeholder="Gemini Api Key..." (input)="onSetApiKey($event.target)" />
+      </li>
+
+      <li>
+        <button class="readme-link" (click)="openReadMeModal()">
+          README
+        </button>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="grid-wrapper">
+
+    @if (isLoading) {
+    <div class="loading-backdrop">
+      <div class="loading-content">
+        <div class="spinner-border"></div>
+        <div class="loading-text">
+          loading execution history...
+        </div>
+      </div>
+    </div>
+    }
+
+    <ag-grid-angular theme="legacy" class="ag-theme-quartz-dark grid" [pagination]="true" [paginationPageSize]="10"
+      [paginationPageSizeSelector]="false" [rowData]="rowData" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+      (gridReady)="onGridReady($event)" (cellContextMenu)="onCellContextMenu($event)"
+      (cellClicked)="onCellClickedEvent($event)">
+    </ag-grid-angular>
+
+  </div>
+
+  <div class="footer-links">
+    <span>Hackathon Resources:</span>
+
+    <a href="https://github.com/bws9000/google-cloud-rapid-agent-hackathon-demo" target="_blank">
+      Demo Source
+    </a>
+
+    <span>|</span>
+
+    <a href="https://github.com/bws9000/stateflowx-runtime-host-example" target="_blank">
+      Runtime Host Example
+    </a>
+
+    <span>|</span>
+
+    <a href="https://github.com/NewJerseySoftware/stateflowx" target="_blank">
+      StateFlowX
+    </a>
+  </div>
+
+
+</div>

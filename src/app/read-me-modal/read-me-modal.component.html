@@ -1,0 +1,80 @@
+<div class="modal-content">
+    <button class="close-button" (click)="close()">×</button>
+    <h2>StateFlowX Runtime Demo</h2>
+
+    <h3>Getting Started</h3>
+
+    <p>
+        To run this demo, enter your Gemini API key and click
+        <strong>Execute Task</strong>.
+    </p>
+
+    <p>
+        Your API key is used only for the current execution and is not stored by
+        StateFlowX. If you prefer, use a temporary or limited-access key for testing.
+    </p>
+
+    <h3>What This Demo Does</h3>
+
+    <p>
+        This demo executes a StateFlowX workflow and streams execution events to the
+        dashboard in real time.
+    </p>
+
+    <ol>
+        <li>Calls a weather service to retrieve live weather data.</li>
+        <li>Passes the response into an AI-powered workflow.</li>
+        <li>Uses Google ADK and MCP integration to access external tools.</li>
+        <li>Generates a structured JSON result.</li>
+        <li>Emits runtime events as the workflow progresses.</li>
+    </ol>
+
+    <h3>Execution Flow</h3>
+
+    <pre><code>Client
+  →
+Runtime
+  →
+Weather Service
+  →
+Google ADK Agent
+  →
+MongoDB MCP Tool
+  →
+Result</code></pre>
+
+    <h3>Configuration Example</h3>
+
+    <pre><code>
+defineConfig({{ '{' }}
+  transport: websocket(),
+  protocol: jsonRpc(),
+
+  services: [
+    {{ '{' }}
+      name: 'weather',
+      type: 'http'
+    {{ '}' }}
+  ],
+
+  workflows: [
+    {{ '{' }}
+      route: 'weather.execute',
+      service: 'weather',
+      provider: 'google-adk'
+    {{ '}' }}
+  ]
+{{ '}' }});
+</code></pre>
+
+    <h3>Results</h3>
+
+    <p>
+        The <strong>Result</strong> column contains the final workflow output.
+        In this demo the output is JSON, but a workflow could produce any type of
+        artifact, including documents, reports, images, generated code, or custom
+        application data.
+    </p>
+
+    <button class="readme-link" (click)="close()"> X CLOSE</button>
+</div>
